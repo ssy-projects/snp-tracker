@@ -29,17 +29,7 @@ header{background:linear-gradient(135deg,#1e3a5f,#0f4c81);padding:14px 24px;disp
 .stat-n{font-size:26px;font-weight:800;line-height:1.2;}
 .stat-l{font-size:11px;font-weight:600;opacity:.7;text-transform:uppercase;letter-spacing:.05em;}
 
-.parse-box{background:#fff;border-radius:14px;box-shadow:0 1px 6px rgba(0,0,0,.08);margin:12px 24px;overflow:hidden;border:1.5px solid #e0f2fe;}
-.parse-hdr{background:linear-gradient(90deg,#0f4c81,#1e3a5f);padding:11px 18px;display:flex;align-items:center;gap:10px;}
-.parse-hdr span{color:#fff;font-weight:700;font-size:14px;}
-.parse-hdr small{color:#93c5fd;font-size:12px;}
-.parse-body{padding:14px 18px;}
-.parse-body textarea{width:100%;border:1.5px solid #e2e8f0;border-radius:10px;padding:10px 13px;font-size:13px;resize:vertical;font-family:inherit;color:#1e293b;line-height:1.6;outline:none;min-height:70px;}
-.preview-card{margin-top:14px;border:1.5px solid #bbf7d0;border-radius:12px;overflow:hidden;}
-.preview-hdr{background:#f0fdf4;padding:9px 14px;display:flex;justify-content:space-between;align-items:center;}
-.preview-grid{padding:12px 14px;display:grid;grid-template-columns:repeat(4,1fr);gap:6px 12px;}
-.pf-label{font-size:10px;color:#94a3b8;font-weight:700;text-transform:uppercase;margin-bottom:2px;}
-.pf-val{font-size:12px;color:#1e293b;background:#f8fafc;border-radius:6px;padding:3px 7px;border:1px solid #e2e8f0;}
+
 
 .toolbar{background:#fff;border-bottom:1px solid #e2e8f0;padding:10px 24px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
 .toolbar input,.toolbar select{padding:7px 10px;border:1px solid #e2e8f0;border-radius:8px;font-size:12px;background:#f8fafc;color:#1e293b;outline:none;}
@@ -124,20 +114,7 @@ td{padding:8px 12px;vertical-align:middle;}
 
 <div class="stats-grid" id="statsGrid"></div>
 
-<div class="parse-box">
-  <div class="parse-hdr">
-    <span>⚡ AI Parse</span>
-    <small>Paste raw S&P text — broker email, report line, rumour — and Claude will extract the fields</small>
-  </div>
-  <div class="parse-body">
-    <textarea id="parseInput" placeholder="e.g. 'Reported — CAPE JACARANDA, Bulk, 181K DWT, 2011 Imabari, sold USD 25.5 mill less 2%, buyers Kumiai Senpaku, SS/DD due…'"></textarea>
-    <div style="display:flex;gap:8px;margin-top:8px;align-items:center;">
-      <button class="btn btn-navy" id="parseBtn" onclick="runParse()">⚡ Parse & Preview</button>
-      <span id="parseMsg" style="font-size:12px;"></span>
-    </div>
-    <div id="previewCard"></div>
-  </div>
-</div>
+
 
 <div class="toolbar">
   <input type="text" id="qSearch" placeholder="🔍 Search vessel, buyer, seller, broker…" oninput="render()">
@@ -288,7 +265,7 @@ const GRP_COLORS = {
 };
 const STATUSES = ['Rumoured','Offers','On Subs','Done','Failed','Reported'];
 
-let data=[], nextId=1, groupBy='type', editId=null, PW='', sortCol=null, sortDir=1, previewData=null;
+let data=[], nextId=1, groupBy='type', editId=null, PW='', sortCol=null, sortDir=1;
 
 // ── Password ──────────────────────────────────────────────────────────────
 function checkPw(){
@@ -631,73 +608,7 @@ async function saveEntry(){
   }catch(e){setSync('⚠ '+e.message);}
 }
 
-// ── AI Parse ──────────────────────────────────────────────────────────────
-async function runParse(){
-  const txt=document.getElementById('parseInput').value.trim();if(!txt)return;
-  const btn=document.getElementById('parseBtn');
-  const msg=document.getElementById('parseMsg');
-  btn.textContent='Parsing…';btn.disabled=true;
-  msg.textContent='';document.getElementById('previewCard').innerHTML='';
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-      model:'claude-sonnet-4-6',max_tokens:1000,
-      system:`You are a maritime S&P deal parser. Extract and return ONLY a JSON object (no markdown) with keys: status, infoDate, name, type, segment, dwt, unit, builtYear, builder, seller, buyer, price, basis, eco, bwts, sox, broker, remarks, source.
-Valid status: Rumoured|Offers|On Subs|Done|Failed|Reported (default: Reported)
-Valid type: Bulk Carrier|Tanker|Container|LPG|LNG|Roro|Other
-Valid segment: Handysize|Supramax/UMX|Panamax/KMX|Capesize|VLCC/Suezmax|Aframax/LR2|MR/LR1|Small Tanker|Feeder|Other
-Valid unit: DWT|TEU|m3|CEU|M3
-Valid basis: Straight Sale|BBHP|TC Attached|Enbloc|Auction|Resale/NB|Other
-eco/bwts/sox: Y or N only
-infoDate: YYYY-MM-DD, today if not specified
-price: number in USD millions, digits only (e.g. 25.5)
-Infer segment from dwt+type: Bulk <35k=Handysize, 35-65k=Supramax/UMX, 65-90k=Panamax/KMX, >90k=Capesize; Tanker <20k=Small Tanker, 20-60k=MR/LR1, 60-100k=Aframax/LR2, >100k=VLCC/Suezmax
-Return JSON only.`,
-      messages:[{role:'user',content:txt}]
-    })});
-    const d=await res.json();
-    const raw=d.content.map(c=>c.text||'').join('').replace(/```json|```/g,'').trim();
-    previewData=JSON.parse(raw);
-    showPreview(previewData);
-  }catch(e){msg.style.color='#dc2626';msg.textContent='✗ Parse failed — try again';}
-  finally{btn.textContent='⚡ Parse & Preview';btn.disabled=false;}
-}
 
-function showPreview(p){
-  const fields=[
-    ['Status',p.status],['Date',p.infoDate],['Broker',p.broker],['Source',p.source],
-    ['Vessel',p.name,true],['Type',p.type],['Segment',p.segment],['Size',p.dwt?(p.dwt+' '+p.unit):null],
-    ['Built',p.builtYear],['Builder',p.builder],['Seller',p.seller,true],['Buyer',p.buyer,true],
-    ['Price',p.price?'USD '+p.price+'m':null],['Basis',p.basis],
-    ['ECO',p.eco],['BWTS',p.bwts],['Scrubber',p.sox],
-  ].filter(f=>f[1]);
-  document.getElementById('previewCard').innerHTML=`<div class="preview-card">
-    <div class="preview-hdr">
-      <span style="font-weight:700;font-size:13px;color:#166534;">✓ Parsed — review before adding</span>
-      <div style="display:flex;gap:8px;">
-        <button class="btn btn-light btn-sm" onclick="discardPreview()">Discard</button>
-        <button class="btn btn-sm" style="background:#16a34a;color:#fff;" onclick="confirmPreview()">+ Add to Tracker</button>
-      </div>
-    </div>
-    <div class="preview-grid">
-      ${fields.map(([l,v,wide])=>`<div style="grid-column:${wide?'span 2':'span 1'}"><div class="pf-label">${l}</div><div class="pf-val">${x(v)}</div></div>`).join('')}
-      ${p.remarks?`<div style="grid-column:span 4"><div class="pf-label">Remarks</div><div class="pf-val" style="background:#fffbeb;border-color:#fde68a;">${x(p.remarks)}</div></div>`:''}
-    </div>
-  </div>`;
-}
-
-function discardPreview(){previewData=null;document.getElementById('previewCard').innerHTML='';document.getElementById('parseInput').value='';}
-
-async function confirmPreview(){
-  if(!previewData)return;
-  const ts=new Date().toISOString().slice(0,16).replace('T',' ');
-  const entry={...previewData,id:nextId++,infoDate:previewData.infoDate||new Date().toISOString().slice(0,10),amendLog:[{ts,note:'Created via AI parse'}]};
-  discardPreview();setSync('Saving…');
-  try{
-    const j=await apiPost({action:'add',entry});
-    if(j.success){data.push(entry);render();setSync('✓ Entry added');document.getElementById('parseMsg').style.color='#16a34a';document.getElementById('parseMsg').textContent='✓ Added!';setTimeout(()=>document.getElementById('parseMsg').textContent='',2500);}
-    else setSync('⚠ '+(j.error||'Failed'));
-  }catch(e){setSync('⚠ '+e.message);}
-}
 
 // ── Print ─────────────────────────────────────────────────────────────────
 function showPrint(){
