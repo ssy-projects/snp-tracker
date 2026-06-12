@@ -134,9 +134,17 @@ td{padding:8px 12px;vertical-align:middle;}
   </select>
   <select id="qSegment" onchange="render()">
     <option value="">All Segments</option>
-    <option>Handysize</option><option>Supramax/UMX</option><option>Panamax/KMX</option>
-    <option>Capesize</option><option>VLCC/Suezmax</option><option>Aframax/LR2</option>
-    <option>MR/LR1</option><option>Small Tanker</option><option>Feeder</option><option>Other</option>
+    <option>Handysize</option><option>Supramax</option><option>Handymax</option>
+    <option>Ultramax</option><option>Panamax</option><option>Kamsarmax</option>
+    <option>Post-Panamax</option><option>Baby-Cape</option><option>Capesize</option>
+    <option>Newcastlemax</option><option>VLOC</option><option>Handy Tanker</option>
+    <option>MR1</option><option>MR2</option><option>LR1</option><option>LR2</option>
+    <option>Aframax</option><option>Suezmax</option><option>VLCC</option>
+    <option>Mini-Bulker</option><option>Feeder</option><option>Medium Box</option>
+    <option>Mega Box</option><option>Woodchip</option><option>Reefer</option>
+    <option>Bunker Tanker</option><option>VLGC</option><option>MGC</option>
+    <option>SLPG</option><option>Semi-Ref LPG</option><option>LNG</option>
+    <option>Livestock</option>
   </select>
   <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
     <span style="font-size:12px;color:#64748b;">Group by:</span>
@@ -184,9 +192,17 @@ td{padding:8px 12px;vertical-align:middle;}
       </div>
       <div><label class="form-label">Segment</label>
         <select class="form-ctrl" id="f_segment">
-          <option>Handysize</option><option>Supramax/UMX</option><option>Panamax/KMX</option>
-          <option>Capesize</option><option>VLCC/Suezmax</option><option>Aframax/LR2</option>
-          <option>MR/LR1</option><option>Small Tanker</option><option>Feeder</option><option>Other</option>
+          <option>Handysize</option><option>Supramax</option><option>Handymax</option>
+          <option>Ultramax</option><option>Panamax</option><option>Kamsarmax</option>
+          <option>Post-Panamax</option><option>Baby-Cape</option><option>Capesize</option>
+          <option>Newcastlemax</option><option>VLOC</option><option>Handy Tanker</option>
+          <option>MR1</option><option>MR2</option><option>LR1</option><option>LR2</option>
+          <option>Aframax</option><option>Suezmax</option><option>VLCC</option>
+          <option>Mini-Bulker</option><option>Feeder</option><option>Medium Box</option>
+          <option>Mega Box</option><option>Woodchip</option><option>Reefer</option>
+          <option>Bunker Tanker</option><option>VLGC</option><option>MGC</option>
+          <option>SLPG</option><option>Semi-Ref LPG</option><option>LNG</option>
+          <option>Livestock</option>
         </select>
       </div>
       <div><label class="form-label">Size</label><input type="text" class="form-ctrl" id="f_dwt" placeholder="e.g. 181,452"></div>
@@ -206,7 +222,8 @@ td{padding:8px 12px;vertical-align:middle;}
       <div><label class="form-label">Basis</label>
         <select class="form-ctrl" id="f_basis">
           <option>Straight Sale</option><option>BBHP</option><option>TC Attached</option>
-          <option>Enbloc</option><option>Auction</option><option>Resale/NB</option><option>Other</option>
+          <option>Enbloc</option><option>Auction</option><option>Resale/NB</option>
+          <option>POPT</option><option>Other</option>
         </select>
       </div>
       <div><label class="form-label">ECO</label>
@@ -249,16 +266,16 @@ const STATUS_C = {
   'Reported': {dot:'#06b6d4',bg:'#cffafe',text:'#155e75'},
 };
 const TYPE_C = {
-  'Bulk Carrier': {bg:'#fef9c3',text:'#854d0e',dot:'#f59e0b'},
-  'Tanker':       {bg:'#dbeafe',text:'#1e40af',dot:'#3b82f6'},
-  'Box':          {bg:'#e0f2fe',text:'#075985',dot:'#0ea5e9'},
-  'LPG':          {bg:'#f3e8ff',text:'#6b21a8',dot:'#a855f7'},
-  'LNG':          {bg:'#dcfce7',text:'#166534',dot:'#22c55e'},
-  'Roro':         {bg:'#ffedd5',text:'#9a3412',dot:'#f97316'},
-  'Other':        {bg:'#f1f5f9',text:'#475569',dot:'#94a3b8'},
+  'Bulk Carrier': {bg:'#fef9c3',text:'#854d0e',dot:'#f59e0b'},   // amber
+  'Tanker':       {bg:'#dbeafe',text:'#1e40af',dot:'#3b82f6'},   // blue
+  'Box':          {bg:'#fce7f3',text:'#9d174d',dot:'#ec4899'},   // pink
+  'LPG':          {bg:'#f3e8ff',text:'#6b21a8',dot:'#a855f7'},   // purple
+  'LNG':          {bg:'#dcfce7',text:'#166534',dot:'#22c55e'},   // green
+  'Roro':         {bg:'#ffedd5',text:'#9a3412',dot:'#f97316'},   // orange
+  'Other':        {bg:'#f1f5f9',text:'#475569',dot:'#94a3b8'},   // grey
 };
 const GRP_COLORS = {
-  'Bulk Carrier':'#1e3a5f','Tanker':'#0f4c81','Container':'#0e7490',
+  'Bulk Carrier':'#1e3a5f','Tanker':'#0f4c81',  'Box':'#9d174d',
   'LPG':'#7c3aed','LNG':'#166534','Roro':'#b45309','Other':'#475569',
   'Done':'#166534','Rumoured':'#4c1d95','Offers':'#1e40af',
   'On Subs':'#854d0e','Failed':'#991b1b','Reported':'#155e75',
@@ -467,18 +484,7 @@ function render(){
   });
 }
 
-function updateStats(rows){
-  const counts={Rumoured:0,Offers:0,'On Subs':0,Done:0,Failed:0,Reported:0};
-  (rows||data).forEach(r=>{if(counts[r.status]!==undefined)counts[r.status]++;});
-  document.getElementById('statsGrid').innerHTML=[
-    ['Rumoured',counts.Rumoured,'#ede9fe','#4c1d95'],
-    ['Offers',counts.Offers,'#dbeafe','#1e40af'],
-    ['On Subs',counts['On Subs'],'#fef9c3','#854d0e'],
-    ['Done',counts.Done,'#dcfce7','#166534'],
-    ['Failed',counts.Failed,'#fee2e2','#991b1b'],
-    ['Reported',counts.Reported,'#cffafe','#155e75'],
-  ].map(([l,n,bg,tx])=>`<div class="stat-card" style="background:${bg};"><div class="stat-l" style="color:${tx};">${l}</div><div class="stat-n" style="color:${tx};">${n}</div></div>`).join('');
-}
+function updateStats(rows){}
 
 // ── Status dropdown ───────────────────────────────────────────────────────
 let openMenuId=null;
