@@ -306,7 +306,7 @@ function checkPw(){
 window.addEventListener('DOMContentLoaded',()=>{
   const saved=sessionStorage.getItem(PW_KEY);
   if(saved==='SSY2026'){PW=saved;document.getElementById('pwScreen').style.display='none';loadData();}
-  updateStats([]);
+  setGroup('none');
 });
 
 // ── API ───────────────────────────────────────────────────────────────────
