@@ -148,10 +148,10 @@ td{padding:8px 12px;vertical-align:middle;}
   </select>
   <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
     <span style="font-size:12px;color:#64748b;">Group by:</span>
-    <button class="btn btn-sm btn-navy" id="gb-type" onclick="setGroup('type')">Type</button>
+    <button class="btn btn-sm btn-light" id="gb-type" onclick="setGroup('type')">Type</button>
     <button class="btn btn-sm btn-light" id="gb-status" onclick="setGroup('status')">Status</button>
     <button class="btn btn-sm btn-light" id="gb-segment" onclick="setGroup('segment')">Segment</button>
-    <button class="btn btn-sm btn-light" id="gb-none" onclick="setGroup('none')">All Together</button>
+    <button class="btn btn-sm btn-navy" id="gb-none" onclick="setGroup('none')">All Together</button>
   </div>
   <span id="recordCount" style="font-size:12px;color:#94a3b8;"></span>
 </div>
@@ -286,7 +286,7 @@ const GRP_COLORS = {
 };
 const STATUSES = ['Rumoured','Offers','On Subs','Done','Failed','Reported'];
 
-let data=[], nextId=1, groupBy='type', editId=null, PW='', sortCol=null, sortDir=1;
+let data=[], nextId=1, groupBy='none', editId=null, PW='', sortCol='infoDate', sortDir=-1;
 
 // ── Password ──────────────────────────────────────────────────────────────
 function checkPw(){
@@ -362,13 +362,15 @@ function getFiltered(){
 function getGrouped(rows){
   const g={};
   rows.forEach(r=>{
-    const k=groupBy==='none'?'All Entries':r[groupBy]||'—';
+    let k;
+    if(groupBy==='none') k='All Entries';
+    else if(groupBy==='type') k=normaliseType(r.type)||'—';
+    else k=r[groupBy]||'—';
     if(!g[k])g[k]=[];
     g[k].push(r);
   });
   return g;
 }
-
 // ── Sort ──────────────────────────────────────────────────────────────────
 function sortBy(col){
   if(sortCol===col)sortDir*=-1;else{sortCol=col;sortDir=1;}
@@ -409,9 +411,37 @@ function statusTag(status,withDropdown,rowId){
   </div>`;
 }
 
+function normaliseType(t){
+  const s=String(t||'').trim();
+  const map={
+    'Bulk':'Bulk Carrier','bulk':'Bulk Carrier','BULK':'Bulk Carrier',
+    'Con.':'Box','Con':'Box','con.':'Box','con':'Box',
+    'Container':'Box','container':'Box','CONTAINER':'Box',
+    'Tanker':'Tanker','tanker':'Tanker','TANKER':'Tanker',
+    'LPG':'LPG','lpg':'LPG','LNG':'LNG','lng':'LNG',
+    'Roro':'Roro','roro':'Roro','RORO':'Roro','RoRo':'Roro',
+  };
+  return map[s]||s;
+}
+
+function getFiltered(){
+  const q=(document.getElementById('qSearch').value||'').toLowerCase();
+  const s=document.getElementById('qStatus').value;
+  const t=document.getElementById('qType').value;
+  const sg=document.getElementById('qSegment').value;
+  return data.filter(r=>{
+    if(s&&r.status!==s) return false;
+    if(t&&normaliseType(r.type)!==t) return false;
+    if(sg&&r.segment!==sg) return false;
+    if(q&&![r.name,r.seller,r.buyer,r.builder,r.broker,r.remarks,r.price,r.source].some(f=>f&&String(f).toLowerCase().includes(q))) return false;
+    return true;
+  });
+}
+
 function typeTag(type){
-  const c=TYPE_C[type]||{bg:'#f1f5f9',text:'#475569',dot:'#94a3b8'};
-  return`<span class="tag" style="background:${c.bg};color:${c.text};"><span class="tag-dot" style="background:${c.dot}"></span>${x(type)}</span>`;
+  const t=normaliseType(type);
+  const c=TYPE_C[t]||{bg:'#f1f5f9',text:'#475569',dot:'#94a3b8'};
+  return`<span class="tag" style="background:${c.bg};color:${c.text};"><span class="tag-dot" style="background:${c.dot}"></span>${x(t)}</span>`;
 }
 
 function inferSegment(r){
