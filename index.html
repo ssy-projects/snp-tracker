@@ -323,6 +323,9 @@ async function loadData(){
     data=j.entries||[];
     nextId=data.length>0?Math.max(...data.map(e=>parseInt(e.id)||0))+1:1;
     setSync('✓ Synced '+new Date().toLocaleTimeString()+' ('+data.length+' records)');
+    groupBy='none';
+    sortCol='infoDate';
+    sortDir=-1;
     render();
   }catch(e){
     setSync('⚠ '+e.message);
