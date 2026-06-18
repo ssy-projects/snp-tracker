@@ -393,8 +393,11 @@ function sortIcon(col){
 }
 
 // ── Render ────────────────────────────────────────────────────────────────
-function x(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-
+function fmtSize(dwt){
+  const n=parseFloat(String(dwt).replace(/,/g,''));
+  if(isNaN(n)) return dwt||'';
+  return n.toLocaleString('en-US');
+}
 function ecoFlags(r){
   const f=[];
   const y=v=>v&&String(v).trim().toUpperCase()==='Y';
@@ -480,17 +483,17 @@ function render(){
       return`<tr id="row-${r.id}">
         <td style="white-space:nowrap;font-size:11px;color:#475569;font-weight:600;">${x(r.infoDate||'')}</td>
         <td onclick="event.stopPropagation()">${statusTag(r.status,true,r.id)}</td>
-        <td style="font-weight:700;color:#1e3a5f;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${x(r.name)}">${x(r.name)}</td>
+                  <td style="font-weight:700;color:#1e3a5f;min-width:160px;max-width:220px;white-space:normal;word-break:break-word;">${x(r.name)}</td>
         <td>${typeTag(r.type)}</td>
         <td style="color:#64748b;font-size:11px;">${x(seg)}</td>
-        <td style="color:#64748b;white-space:nowrap;">${x(r.dwt)} ${x(r.unit)}</td>
+                  <td style="color:#64748b;white-space:nowrap;">${fmtSize(r.dwt)} ${x(r.unit)}</td>
         <td style="color:#64748b;">${x(r.builtYear)}</td>
         <td style="color:#64748b;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${x(r.builder)}">${x(r.builder)}</td>
         <td style="color:#1e3a5f;font-weight:600;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${x(r.seller)}">${x(r.seller)||'<span style="color:#cbd5e1">—</span>'}</td>
         <td style="color:#1e3a5f;font-weight:600;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${x(r.buyer)}">${x(r.buyer)||'<span style="color:#cbd5e1">—</span>'}</td>
-        <td style="color:#0f4c81;font-weight:700;white-space:nowrap;">${r.price?'USD '+x(r.price)+'m':'<span style="color:#cbd5e1">—</span>'}</td>
+                  <td style="color:#0f4c81;font-weight:700;white-space:nowrap;max-width:100px;">${r.price?'USD '+x(r.price)+'m':'<span style="color:#cbd5e1">—</span>'}</td>
         <td style="font-size:11px;">${ecoFlags(r)}</td>
-        <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#64748b;font-size:11px;" title="${x(r.remarks)}">${x(r.remarks)||'<span style="color:#e2e8f0">—</span>'}</td>
+                  <td style="min-width:200px;max-width:320px;white-space:normal;word-break:break-word;color:#64748b;font-size:11px;">${x(r.remarks)||'<span style="color:#e2e8f0">—</span>'}</td>
         <td style="color:#64748b;font-size:11px;">${x(r.source)}</td>
         <td onclick="event.stopPropagation()"><div style="display:flex;gap:4px;">
           <button class="btn btn-sm btn-edit" onclick="openEdit(${r.id})">Edit</button>
