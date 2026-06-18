@@ -8,7 +8,6 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:#1e293b;font-size:13px;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
-
 .pw-screen{display:flex;position:fixed;inset:0;background:#0f2744;z-index:999;align-items:center;justify-content:center;flex-direction:column;gap:16px;}
 .pw-screen h2{color:#fff;font-size:22px;letter-spacing:.1em;}
 .pw-screen p{color:rgba(255,255,255,.6);font-size:12px;}
@@ -16,25 +15,15 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:#1e293
 .pw-box input{padding:10px 14px;border-radius:6px;border:none;font-size:14px;width:220px;outline:none;}
 .pw-box button{padding:10px 20px;background:#3b82f6;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:14px;font-weight:700;}
 .pw-error{color:#fca5a5;font-size:12px;display:none;}
-
 header{background:linear-gradient(135deg,#1e3a5f,#0f4c81);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px rgba(0,0,0,0.2);}
 .hdr-title{font-size:20px;font-weight:900;color:#fff;letter-spacing:-.02em;}
 .hdr-sub{font-size:11px;color:#93c5fd;margin-top:2px;}
 .hdr-right{display:flex;align-items:center;gap:10px;}
 .sync-badge{font-size:12px;color:#93c5fd;}
 .save-status{font-size:12px;color:#86efac;}
-
-.stats-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;padding:16px 24px;}
-.stat-card{border-radius:12px;padding:14px 16px;}
-.stat-n{font-size:26px;font-weight:800;line-height:1.2;}
-.stat-l{font-size:11px;font-weight:600;opacity:.7;text-transform:uppercase;letter-spacing:.05em;}
-
-
-
 .toolbar{background:#fff;border-bottom:1px solid #e2e8f0;padding:10px 24px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
 .toolbar input,.toolbar select{padding:7px 10px;border:1px solid #e2e8f0;border-radius:8px;font-size:12px;background:#f8fafc;color:#1e293b;outline:none;}
 .toolbar input{width:220px;}
-
 .btn{padding:7px 14px;border-radius:7px;border:none;cursor:pointer;font-size:12px;font-weight:600;}
 .btn-navy{background:#1e3a5f;color:#fff;}
 .btn-blue{background:#3b82f6;color:#fff;}
@@ -43,7 +32,6 @@ header{background:linear-gradient(135deg,#1e3a5f,#0f4c81);padding:14px 24px;disp
 .btn-sm{padding:4px 9px;font-size:11px;}
 .btn-red{background:#fee2e2;color:#b91c1c;}
 .btn-edit{background:#e0f2fe;color:#0369a1;}
-
 .group-wrap{margin:0 24px 20px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);}
 .group-hdr{padding:10px 16px;display:flex;align-items:center;gap:10px;border-radius:12px 12px 0 0;}
 .group-hdr-title{color:#fff;font-weight:700;font-size:14px;}
@@ -54,16 +42,13 @@ thead tr{background:#f8fafc;border-bottom:1px solid #e2e8f0;}
 th{padding:8px 12px;text-align:left;font-weight:600;color:#475569;font-size:11px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;cursor:pointer;user-select:none;}
 tbody tr{border-bottom:1px solid #f1f5f9;transition:background .15s;}
 tbody tr:hover{background:#f8fafc;}
-td{padding:8px 12px;vertical-align:middle;}
-
+td{padding:8px 12px;vertical-align:top;}
 .tag{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700;white-space:nowrap;}
 .tag-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-
 .status-wrap{position:relative;display:inline-block;}
 .status-btn{display:inline-flex;align-items:center;gap:4px;padding:2px 7px 2px 9px;border-radius:999px;font-size:11px;font-weight:700;border-width:1.5px;border-style:solid;cursor:pointer;white-space:nowrap;}
 .status-menu{position:absolute;top:110%;left:0;z-index:999;background:#fff;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.15);padding:6px;min-width:160px;border:1px solid #e2e8f0;animation:fadeIn .15s ease;}
 .status-item{display:flex;align-items:center;gap:8px;width:100%;padding:7px 10px;border:none;border-radius:7px;cursor:pointer;font-size:12px;text-align:left;background:transparent;}
-
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,40,.5);z-index:100;align-items:center;justify-content:center;}
 .overlay.open{display:flex;}
 .modal{background:#fff;border-radius:12px;padding:24px;width:760px;max-width:95vw;max-height:92vh;overflow-y:auto;}
@@ -77,9 +62,8 @@ td{padding:8px 12px;vertical-align:middle;}
 .empty{text-align:center;color:#94a3b8;padding:30px;}
 .amend-log{margin-top:16px;border-top:1px solid #f1f5f9;padding-top:12px;}
 .amend-log-title{font-size:10px;font-weight:700;color:#cbd5e1;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;}
-.amend-entry{font-size:11px;padding:3px 0;display:flex;gap:8px;align-items:baseline;}
+.amend-entry{font-size:11px;padding:3px 0;display:flex;gap:8px;}
 .amend-ts{color:#cbd5e1;font-size:10px;white-space:nowrap;flex-shrink:0;}
-
 .po{display:none;position:fixed;inset:0;background:#fff;z-index:200;overflow:auto;padding:20px;}
 .po.open{display:block;}
 .ptb{display:flex;gap:8px;margin-bottom:16px;align-items:center;flex-wrap:wrap;}
@@ -101,7 +85,7 @@ td{padding:8px 12px;vertical-align:middle;}
 <header>
   <div>
     <div style="display:flex;align-items:baseline;gap:10px;">
-      <span style="font-family:'Times New Roman',serif;font-size:28px;font-weight:400;color:#fff;letter-spacing:0;">SSY Projects</span>
+      <span style="font-family:'Times New Roman',serif;font-size:28px;font-weight:400;color:#fff;">SSY Projects</span>
       <span style="color:rgba(255,255,255,0.4);font-size:20px;font-weight:300;">|</span>
       <span class="hdr-title">S&P Tracker</span>
     </div>
@@ -115,10 +99,6 @@ td{padding:8px 12px;vertical-align:middle;}
     <button class="btn btn-blue" onclick="openAdd()">+ Add Entry</button>
   </div>
 </header>
-
-
-
-
 
 <div class="toolbar">
   <input type="text" id="qSearch" placeholder="🔍 Search vessel, buyer, seller, broker…" oninput="render()">
@@ -186,7 +166,7 @@ td{padding:8px 12px;vertical-align:middle;}
       <div class="form-2"><label class="form-label">Vessel Name *</label><input type="text" class="form-ctrl" id="f_name" placeholder="e.g. CAPE JACARANDA"></div>
       <div><label class="form-label">Type</label>
         <select class="form-ctrl" id="f_type">
-          <option>Bulk Carrier</option><option>Tanker</option><option>Container</option>
+          <option>Bulk Carrier</option><option>Tanker</option><option>Box</option>
           <option>LPG</option><option>LNG</option><option>Roro</option><option>Other</option>
         </select>
       </div>
@@ -205,7 +185,7 @@ td{padding:8px 12px;vertical-align:middle;}
           <option>Livestock</option>
         </select>
       </div>
-      <div><label class="form-label">Size</label><input type="text" class="form-ctrl" id="f_dwt" placeholder="e.g. 181,452"></div>
+      <div><label class="form-label">Size</label><input type="text" class="form-ctrl" id="f_dwt" placeholder="e.g. 181452"></div>
       <div><label class="form-label">Unit</label>
         <select class="form-ctrl" id="f_unit">
           <option>DWT</option><option>TEU</option><option>m3</option><option>CEU</option><option>M3</option>
@@ -216,8 +196,8 @@ td{padding:8px 12px;vertical-align:middle;}
     </div>
     <div class="form-section">Commercial Terms</div>
     <div class="form-grid">
-      <div class="form-2"><label class="form-label">Seller</label><input type="text" class="form-ctrl" id="f_seller" placeholder="e.g. Kumiai Senpaku"></div>
-      <div class="form-2"><label class="form-label">Buyer</label><input type="text" class="form-ctrl" id="f_buyer" placeholder="e.g. Greeks / Chinese"></div>
+      <div class="form-2"><label class="form-label">Seller</label><input type="text" class="form-ctrl" id="f_seller"></div>
+      <div class="form-2"><label class="form-label">Buyer</label><input type="text" class="form-ctrl" id="f_buyer"></div>
       <div><label class="form-label">Price (USD mill)</label><input type="text" class="form-ctrl" id="f_price" placeholder="e.g. 25.5"></div>
       <div><label class="form-label">Basis</label>
         <select class="form-ctrl" id="f_basis">
@@ -232,14 +212,14 @@ td{padding:8px 12px;vertical-align:middle;}
       <div><label class="form-label">BWTS</label>
         <select class="form-ctrl" id="f_bwts"><option value="">—</option><option value="Y">Y</option><option value="N">N</option></select>
       </div>
-      <div><label class="form-label">Scrubber (SOx)</label>
+      <div><label class="form-label">SOX</label>
         <select class="form-ctrl" id="f_sox"><option value="">—</option><option value="Y">Y</option><option value="N">N</option></select>
       </div>
       <div class="form-3"><label class="form-label">Remarks</label>
-        <textarea class="form-ctrl" id="f_remarks" rows="3" placeholder="e.g. SS/DD due, TC attached, enbloc w/ sisters…"></textarea>
+        <textarea class="form-ctrl" id="f_remarks" rows="3"></textarea>
       </div>
       <div class="form-3"><label class="form-label">Source</label>
-        <input type="text" class="form-ctrl" id="f_source" placeholder="e.g. Daily, TW, Direct, Wapp, comp w22 26">
+        <input type="text" class="form-ctrl" id="f_source" placeholder="e.g. Daily, TW, Direct">
       </div>
     </div>
     <div class="amend-log" id="amendLog" style="display:none;">
@@ -254,10 +234,10 @@ td{padding:8px 12px;vertical-align:middle;}
 </div>
 
 <script>
-const API = 'https://script.google.com/macros/s/AKfycbwjJQY3FhSu3RCg0jiBtQieAQlqInNqU_BEO-gHMNLKN7K580gEz893h_l8NveBEUpn/exec';
-const PW_KEY = 'ssy_snp_pw';
+var API = 'https://script.google.com/macros/s/AKfycbwjJQY3FhSu3RCg0jiBtQieAQlqInNqU_BEO-gHMNLKN7K580gEz893h_l8NveBEUpn/exec';
+var PW_KEY = 'ssy_snp_pw';
 
-const STATUS_C = {
+var STATUS_C = {
   'Rumoured': {dot:'#8b5cf6',bg:'#ede9fe',text:'#4c1d95'},
   'Offers':   {dot:'#3b82f6',bg:'#dbeafe',text:'#1e40af'},
   'On Subs':  {dot:'#f59e0b',bg:'#fef9c3',text:'#854d0e'},
@@ -265,35 +245,74 @@ const STATUS_C = {
   'Failed':   {dot:'#ef4444',bg:'#fee2e2',text:'#991b1b'},
   'Reported': {dot:'#06b6d4',bg:'#cffafe',text:'#155e75'},
 };
-const TYPE_C = {
-  'Bulk Carrier': {bg:'#fef9c3',text:'#854d0e',dot:'#f59e0b'},   // amber
-  'Tanker':       {bg:'#dbeafe',text:'#1e40af',dot:'#3b82f6'},   // blue
-  'Box':          {bg:'#fce7f3',text:'#9d174d',dot:'#ec4899'},   // pink
-  'LPG':          {bg:'#f3e8ff',text:'#6b21a8',dot:'#a855f7'},   // purple
-  'LNG':          {bg:'#dcfce7',text:'#166534',dot:'#22c55e'},   // green
-  'Roro':         {bg:'#ffedd5',text:'#9a3412',dot:'#f97316'},   // orange
-  'Other':        {bg:'#f1f5f9',text:'#475569',dot:'#94a3b8'},   // grey
+var TYPE_C = {
+  'Bulk Carrier': {bg:'#fef9c3',text:'#854d0e',dot:'#f59e0b'},
+  'Tanker':       {bg:'#dbeafe',text:'#1e40af',dot:'#3b82f6'},
+  'Box':          {bg:'#fce7f3',text:'#9d174d',dot:'#ec4899'},
+  'LPG':          {bg:'#f3e8ff',text:'#6b21a8',dot:'#a855f7'},
+  'LNG':          {bg:'#dcfce7',text:'#166534',dot:'#22c55e'},
+  'Roro':         {bg:'#ffedd5',text:'#9a3412',dot:'#f97316'},
+  'Other':        {bg:'#f1f5f9',text:'#475569',dot:'#94a3b8'},
 };
-const GRP_COLORS = {
-  'Bulk Carrier':'#1e3a5f','Tanker':'#0f4c81',  'Box':'#9d174d',
+var GRP_COLORS = {
+  'Bulk Carrier':'#1e3a5f','Tanker':'#0f4c81','Box':'#9d174d',
   'LPG':'#7c3aed','LNG':'#166534','Roro':'#b45309','Other':'#475569',
   'Done':'#166534','Rumoured':'#4c1d95','Offers':'#1e40af',
   'On Subs':'#854d0e','Failed':'#991b1b','Reported':'#155e75',
-  'Handysize':'#1e3a5f','Supramax/UMX':'#0f4c81','Panamax/KMX':'#0e7490',
-  'Capesize':'#7c3aed','VLCC/Suezmax':'#991b1b','Aframax/LR2':'#b45309',
-  'MR/LR1':'#166534','Small Tanker':'#155e75','Feeder':'#4c1d95',
-  '—':'#475569','All Entries':'#1e3a5f'
+  'All Entries':'#1e3a5f'
 };
-const STATUSES = ['Rumoured','Offers','On Subs','Done','Failed','Reported'];
+var STATUSES = ['Rumoured','Offers','On Subs','Done','Failed','Reported'];
 
-let data=[], nextId=1, groupBy='none', editId=null, PW='', sortCol='infoDate', sortDir=-1;
+var data=[], nextId=1, groupBy='none', editId=null, PW='', sortCol='infoDate', sortDir=-1;
+
+// ── Helpers ───────────────────────────────────────────────────────────────
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function fmtSize(v){
+  var n=parseFloat(String(v||'').replace(/,/g,''));
+  return isNaN(n) ? String(v||'') : n.toLocaleString('en-US');
+}
+
+function normaliseType(t){
+  var s=String(t||'').trim();
+  var map={'Bulk':'Bulk Carrier','bulk':'Bulk Carrier','BULK':'Bulk Carrier',
+    'Con.':'Box','Con':'Box','con.':'Box','con':'Box','Container':'Box','container':'Box','CONTAINER':'Box',
+    'Tanker':'Tanker','tanker':'Tanker','LPG':'LPG','lpg':'LPG',
+    'LNG':'LNG','lng':'LNG','Roro':'Roro','roro':'Roro','RORO':'Roro','RoRo':'Roro'};
+  return map[s]||s;
+}
+
+function ecoFlags(r){
+  var f=[];
+  var y=function(v){return v&&String(v).trim().toUpperCase()==='Y';};
+  if(y(r.eco))  f.push('<span style="background:#dcfce7;color:#166534;padding:1px 5px;border-radius:4px;font-size:10px;font-weight:700;">ECO</span>');
+  if(y(r.bwts)) f.push('<span style="background:#dbeafe;color:#1e40af;padding:1px 5px;border-radius:4px;font-size:10px;font-weight:700;">BW</span>');
+  if(y(r.sox))  f.push('<span style="background:#fef9c3;color:#854d0e;padding:1px 5px;border-radius:4px;font-size:10px;font-weight:700;">SOX</span>');
+  return f.join(' ')||'<span style="color:#e2e8f0">—</span>';
+}
+
+function statusTag(status, withDropdown, rowId){
+  var c=STATUS_C[status]||{dot:'#94a3b8',bg:'#f1f5f9',text:'#475569'};
+  if(!withDropdown) return '<span class="tag" style="background:'+c.bg+';color:'+c.text+';"><span class="tag-dot" style="background:'+c.dot+'"></span>'+esc(status)+'</span>';
+  return '<div class="status-wrap" onclick="event.stopPropagation()"><button class="status-btn" style="background:'+c.bg+';color:'+c.text+';border-color:'+c.dot+';" onclick="toggleStatusMenu('+rowId+',this)"><span class="tag-dot" style="background:'+c.dot+'"></span>'+esc(status)+'<span style="font-size:9px;opacity:.7;margin-left:2px;">▾</span></button></div>';
+}
+
+function typeTag(type){
+  var t=normaliseType(type);
+  var c=TYPE_C[t]||{bg:'#f1f5f9',text:'#475569',dot:'#94a3b8'};
+  return '<span class="tag" style="background:'+c.bg+';color:'+c.text+';"><span class="tag-dot" style="background:'+c.dot+'"></span>'+esc(t)+'</span>';
+}
+
+function sortIcon(col){
+  if(sortCol!==col) return '<span style="opacity:.3;font-size:9px;margin-left:2px;">⇅</span>';
+  return sortDir===1?'<span style="font-size:9px;margin-left:2px;">↑</span>':'<span style="font-size:9px;margin-left:2px;">↓</span>';
+}
 
 // ── Password ──────────────────────────────────────────────────────────────
 function checkPw(){
-  const val=document.getElementById('pwInput').value;
+  var val=document.getElementById('pwInput').value;
   if(val==='SSY2026'){
-    PW=val;
-    sessionStorage.setItem(PW_KEY,val);
+    PW=val; sessionStorage.setItem(PW_KEY,val);
     document.getElementById('pwScreen').style.display='none';
     loadData();
   } else {
@@ -302,38 +321,33 @@ function checkPw(){
   }
 }
 
-// Auto-login if session still active
-window.addEventListener('DOMContentLoaded',()=>{
-  const saved=sessionStorage.getItem(PW_KEY);
+window.addEventListener('DOMContentLoaded',function(){
+  var saved=sessionStorage.getItem(PW_KEY);
   if(saved==='SSY2026'){PW=saved;document.getElementById('pwScreen').style.display='none';loadData();}
-  setGroup('none');
 });
 
 // ── API ───────────────────────────────────────────────────────────────────
 function setSync(msg){document.getElementById('syncStatus').textContent=msg;}
-function setSave(msg){document.getElementById('saveStatus').textContent=msg;if(msg)setTimeout(()=>document.getElementById('saveStatus').textContent='',2500);}
+function setSave(msg){document.getElementById('saveStatus').textContent=msg;if(msg)setTimeout(function(){document.getElementById('saveStatus').textContent='';},2500);}
 
 async function loadData(){
   setSync('Loading…');
   try{
-    const r=await fetch(API+'?password='+encodeURIComponent(PW));
+    var r=await fetch(API+'?password='+encodeURIComponent(PW));
     if(!r.ok) throw new Error('HTTP '+r.status);
-    const j=await r.json();
+    var j=await r.json();
     if(j.error) throw new Error(j.error);
     data=j.entries||[];
-    nextId=data.length>0?Math.max(...data.map(e=>parseInt(e.id)||0))+1:1;
+    nextId=data.length>0?Math.max.apply(null,data.map(function(e){return parseInt(e.id)||0;}))+1:1;
+    groupBy='none'; sortCol='infoDate'; sortDir=-1;
     setSync('✓ Synced '+new Date().toLocaleTimeString()+' ('+data.length+' records)');
-    groupBy='none';
-    sortCol='infoDate';
-    sortDir=-1;
+    setGroup('none');
     render();
-  }catch(e){
-    setSync('⚠ '+e.message);
-  }
+  }catch(e){setSync('⚠ '+e.message);}
 }
 
 async function apiPost(body){
-  const r=await fetch(API,{method:'POST',body:JSON.stringify({...body,password:PW})});
+  var r=await fetch(API,{method:'POST',body:JSON.stringify(Object.assign({},body,{password:PW}))});
   if(!r.ok) throw new Error('HTTP '+r.status);
   return r.json();
 }
@@ -341,220 +355,127 @@ async function apiPost(body){
 // ── Group / filter ────────────────────────────────────────────────────────
 function setGroup(g){
   groupBy=g;
-  ['type','status','segment','none'].forEach(k=>{
-    const b=document.getElementById('gb-'+k);
+  ['type','status','segment','none'].forEach(function(k){
+    var b=document.getElementById('gb-'+k);
     if(b) b.className=k===g?'btn btn-sm btn-navy':'btn btn-sm btn-light';
   });
   render();
 }
 
 function getFiltered(){
-  const q=(document.getElementById('qSearch').value||'').toLowerCase();
-  const s=document.getElementById('qStatus').value;
-  const t=document.getElementById('qType').value;
-  const sg=document.getElementById('qSegment').value;
-  return data.filter(r=>{
+  var q=(document.getElementById('qSearch').value||'').toLowerCase();
+  var s=document.getElementById('qStatus').value;
+  var t=document.getElementById('qType').value;
+  var sg=document.getElementById('qSegment').value;
+  return data.filter(function(r){
     if(s&&r.status!==s) return false;
-    if(t&&r.type!==t) return false;
+    if(t&&normaliseType(r.type)!==t) return false;
     if(sg&&r.segment!==sg) return false;
-    if(q&&![r.name,r.seller,r.buyer,r.builder,r.broker,r.remarks,r.price,r.source].some(f=>f&&String(f).toLowerCase().includes(q))) return false;
+    if(q&&![r.name,r.seller,r.buyer,r.builder,r.broker,r.remarks,r.price,r.source].some(function(f){return f&&String(f).toLowerCase().includes(q);})) return false;
     return true;
   });
 }
 
 function getGrouped(rows){
-  const g={};
-  rows.forEach(r=>{
-    let k;
-    if(groupBy==='none') k='All Entries';
-    else if(groupBy==='type') k=normaliseType(r.type)||'—';
-    else k=r[groupBy]||'—';
+  var g={};
+  rows.forEach(function(r){
+    var k=groupBy==='none'?'All Entries':groupBy==='type'?normaliseType(r.type)||'—':r[groupBy]||'—';
     if(!g[k])g[k]=[];
     g[k].push(r);
   });
   return g;
 }
-// ── Sort ──────────────────────────────────────────────────────────────────
-function sortBy(col){
-  if(sortCol===col)sortDir*=-1;else{sortCol=col;sortDir=1;}
-  render();
-}
+
 function applySortToRows(rows){
-  if(!sortCol)return rows;
-  return [...rows].sort((a,b)=>{
-    let av=String(a[sortCol]||''),bv=String(b[sortCol]||'');
-    if(sortCol==='price'){return(parseFloat(av)||0-(parseFloat(bv)||0))*sortDir;}
+  if(!sortCol) return rows;
+  return rows.slice().sort(function(a,b){
+    var av=String(a[sortCol]||''), bv=String(b[sortCol]||'');
+    if(sortCol==='price') return ((parseFloat(av)||0)-(parseFloat(bv)||0))*sortDir;
     return av.localeCompare(bv)*sortDir;
   });
 }
-function sortIcon(col){
-  if(sortCol!==col)return '<span style="opacity:.3;font-size:9px;margin-left:2px;">⇅</span>';
-  return sortDir===1?'<span style="font-size:9px;margin-left:2px;">↑</span>':'<span style="font-size:9px;margin-left:2px;">↓</span>';
+
+function sortBy(col){
+  if(sortCol===col) sortDir*=-1; else{sortCol=col;sortDir=1;}
+  render();
 }
 
 // ── Render ────────────────────────────────────────────────────────────────
-function fmtSize(dwt){
-  const n=parseFloat(String(dwt).replace(/,/g,''));
-  if(isNaN(n)) return dwt||'';
-  return n.toLocaleString('en-US');
-}
-function ecoFlags(r){
-  const f=[];
-  const y=v=>v&&String(v).trim().toUpperCase()==='Y';
-  if(y(r.eco))  f.push('<span style="background:#dcfce7;color:#166534;padding:1px 5px;border-radius:4px;font-size:10px;font-weight:700;">ECO</span>');
-  if(y(r.bwts)) f.push('<span style="background:#dbeafe;color:#1e40af;padding:1px 5px;border-radius:4px;font-size:10px;font-weight:700;">BWTS</span>');
-  if(y(r.sox))  f.push('<span style="background:#fef9c3;color:#854d0e;padding:1px 5px;border-radius:4px;font-size:10px;font-weight:700;">Scrubber</span>');
-  return f.join(' ')||'<span style="color:#e2e8f0">—</span>';
-}
-
-function statusTag(status,withDropdown,rowId){
-  const c=STATUS_C[status]||{dot:'#94a3b8',bg:'#f1f5f9',text:'#475569'};
-  if(!withDropdown) return`<span class="tag" style="background:${c.bg};color:${c.text};"><span class="tag-dot" style="background:${c.dot}"></span>${x(status)}</span>`;
-  return`<div class="status-wrap" onclick="event.stopPropagation()">
-    <button class="status-btn" style="background:${c.bg};color:${c.text};border-color:${c.dot};" onclick="toggleStatusMenu(${rowId},this)">
-      <span class="tag-dot" style="background:${c.dot}"></span>${x(status)}<span style="font-size:9px;opacity:.7;margin-left:2px;">▾</span>
-    </button>
-  </div>`;
-}
-
-function normaliseType(t){
-  const s=String(t||'').trim();
-  const map={
-    'Bulk':'Bulk Carrier','bulk':'Bulk Carrier','BULK':'Bulk Carrier',
-    'Con.':'Box','Con':'Box','con.':'Box','con':'Box',
-    'Container':'Box','container':'Box','CONTAINER':'Box',
-    'Tanker':'Tanker','tanker':'Tanker','TANKER':'Tanker',
-    'LPG':'LPG','lpg':'LPG','LNG':'LNG','lng':'LNG',
-    'Roro':'Roro','roro':'Roro','RORO':'Roro','RoRo':'Roro',
-  };
-  return map[s]||s;
-}
-
-function getFiltered(){
-  const q=(document.getElementById('qSearch').value||'').toLowerCase();
-  const s=document.getElementById('qStatus').value;
-  const t=document.getElementById('qType').value;
-  const sg=document.getElementById('qSegment').value;
-  return data.filter(r=>{
-    if(s&&r.status!==s) return false;
-    if(t&&normaliseType(r.type)!==t) return false;
-    if(sg&&r.segment!==sg) return false;
-    if(q&&![r.name,r.seller,r.buyer,r.builder,r.broker,r.remarks,r.price,r.source].some(f=>f&&String(f).toLowerCase().includes(q))) return false;
-    return true;
-  });
-}
-
-function typeTag(type){
-  const t=normaliseType(type);
-  const c=TYPE_C[t]||{bg:'#f1f5f9',text:'#475569',dot:'#94a3b8'};
-  return`<span class="tag" style="background:${c.bg};color:${c.text};"><span class="tag-dot" style="background:${c.dot}"></span>${x(t)}</span>`;
-}
-
-function inferSegment(r){
-  if(r.segment&&r.segment!=='Other'&&r.segment!=='') return r.segment;
-  const dwt=parseFloat(String(r.dwt).replace(/,/g,''))||0;
-  const unit=String(r.unit||'').toUpperCase();
-  const type=String(r.type||'');
-  if(unit==='TEU'||type==='Container') return dwt<2000?'Feeder':dwt<8000?'Feeder':'Other';
-  if(type==='LPG'||type==='LNG') return 'Other';
-  if(type==='Tanker'){
-    if(dwt<20000) return 'Small Tanker';
-    if(dwt<60000) return 'MR/LR1';
-    if(dwt<100000) return 'Aframax/LR2';
-    return 'VLCC/Suezmax';
-  }
-  if(dwt<35000) return 'Handysize';
-  if(dwt<65000) return 'Supramax/UMX';
-  if(dwt<90000) return 'Panamax/KMX';
-  return 'Capesize';
-}
-
 function render(){
-  const rows=getFiltered();
-  document.getElementById('recordCount').textContent=rows.length+' records';
-  updateStats(rows);
-  const grouped=getGrouped(rows);
-  const area=document.getElementById('tableArea');
-  area.innerHTML='';
-  Object.entries(grouped).sort(([a],[b])=>a.localeCompare(b)).forEach(([group,gRows])=>{
-    const hdrBg=GRP_COLORS[group]||'#1e3a5f';
-    const rowsHtml=applySortToRows(gRows).map(r=>{
-      const seg=inferSegment(r);
-      return`<tr id="row-${r.id}">
-        <td style="white-space:nowrap;font-size:11px;color:#475569;font-weight:600;">${x(r.infoDate||'')}</td>
-        <td onclick="event.stopPropagation()">${statusTag(r.status,true,r.id)}</td>
-                  <td style="font-weight:700;color:#1e3a5f;min-width:160px;max-width:220px;white-space:normal;word-break:break-word;">${x(r.name)}</td>
-        <td>${typeTag(r.type)}</td>
-        <td style="color:#64748b;font-size:11px;">${x(seg)}</td>
-                  <td style="color:#64748b;white-space:nowrap;">${fmtSize(r.dwt)} ${x(r.unit)}</td>
-        <td style="color:#64748b;">${x(r.builtYear)}</td>
-        <td style="color:#64748b;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${x(r.builder)}">${x(r.builder)}</td>
-        <td style="color:#1e3a5f;font-weight:600;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${x(r.seller)}">${x(r.seller)||'<span style="color:#cbd5e1">—</span>'}</td>
-        <td style="color:#1e3a5f;font-weight:600;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${x(r.buyer)}">${x(r.buyer)||'<span style="color:#cbd5e1">—</span>'}</td>
-                  <td style="color:#0f4c81;font-weight:700;white-space:nowrap;max-width:100px;">${r.price?'USD '+x(r.price)+'m':'<span style="color:#cbd5e1">—</span>'}</td>
-        <td style="font-size:11px;">${ecoFlags(r)}</td>
-                  <td style="min-width:200px;max-width:320px;white-space:normal;word-break:break-word;color:#64748b;font-size:11px;">${x(r.remarks)||'<span style="color:#e2e8f0">—</span>'}</td>
-        <td style="color:#64748b;font-size:11px;">${x(r.source)}</td>
-        <td onclick="event.stopPropagation()"><div style="display:flex;gap:4px;">
-          <button class="btn btn-sm btn-edit" onclick="openEdit(${r.id})">Edit</button>
-          <button class="btn btn-sm btn-red" onclick="delEntry(${r.id},this)">Del</button>
-        </div></td>
-      </tr>`;
-    }).join('');
-    const div=document.createElement('div');
-    div.className='group-wrap';
-    div.innerHTML=`<div class="group-hdr" style="background:${hdrBg};">
-      <span class="group-hdr-title">${x(group)}</span>
-      <span class="group-cnt">${gRows.length}</span>
-    </div>
-    <div class="table-scroll"><table>
-      <thead><tr>
-        ${[['Date','infoDate'],['Status','status'],['Vessel','name'],['Type','type'],['Segment','segment'],['Size','dwt'],['Built','builtYear'],['Builder','builder'],['Seller','seller'],['Buyer','buyer'],['Price','price'],        ['ECO/BW/SOX',''],['Remarks','remarks'],['Source','source']].map(([l,c])=>
-          c?`<th onclick="sortBy('${c}')">${l}${sortIcon(c)}</th>`:`<th>${l}</th>`
-        ).join('')}
-        <th></th>
-      </tr></thead>
-      <tbody>${rowsHtml||'<tr><td colspan="15" class="empty">No entries</td></tr>'}</tbody>
-    </table></div>`;
-    area.appendChild(div);
-  });
-}
-
-function updateStats(rows){
-  const el=document.getElementById('statsGrid');
-  if(!el) return;
+  try{
+    var rows=getFiltered();
+    var rc=document.getElementById('recordCount');
+    if(rc) rc.textContent=rows.length+' records';
+    var grouped=getGrouped(rows);
+    var area=document.getElementById('tableArea');
+    if(!area) return;
+    area.innerHTML='';
+    Object.entries(grouped).sort(function(a,b){return a[0].localeCompare(b[0]);}).forEach(function(entry){
+      var group=entry[0], gRows=entry[1];
+      var hdrBg=GRP_COLORS[group]||'#1e3a5f';
+      var rowsHtml=applySortToRows(gRows).map(function(r){
+        return '<tr id="row-'+r.id+'">'+
+          '<td style="white-space:nowrap;font-size:11px;color:#475569;font-weight:600;">'+esc(r.infoDate||'')+'</td>'+
+          '<td onclick="event.stopPropagation()">'+statusTag(r.status,true,r.id)+'</td>'+
+          '<td style="font-weight:700;color:#1e3a5f;min-width:160px;max-width:220px;white-space:normal;word-break:break-word;">'+esc(r.name)+'</td>'+
+          '<td>'+typeTag(r.type)+'</td>'+
+          '<td style="color:#64748b;font-size:11px;">'+esc(r.segment)+'</td>'+
+          '<td style="color:#64748b;white-space:nowrap;">'+fmtSize(r.dwt)+' '+esc(r.unit)+'</td>'+
+          '<td style="color:#64748b;">'+esc(r.builtYear)+'</td>'+
+          '<td style="color:#64748b;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="'+esc(r.builder)+'">'+esc(r.builder)+'</td>'+
+          '<td style="color:#1e3a5f;font-weight:600;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="'+esc(r.seller)+'">'+esc(r.seller||'—')+'</td>'+
+          '<td style="color:#1e3a5f;font-weight:600;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="'+esc(r.buyer)+'">'+esc(r.buyer||'—')+'</td>'+
+          '<td style="color:#0f4c81;font-weight:700;white-space:nowrap;max-width:100px;">'+(r.price?'USD '+esc(r.price)+'m':'<span style="color:#cbd5e1">—</span>')+'</td>'+
+          '<td style="font-size:11px;">'+ecoFlags(r)+'</td>'+
+          '<td style="min-width:200px;max-width:320px;white-space:normal;word-break:break-word;color:#64748b;font-size:11px;">'+esc(r.remarks||'—')+'</td>'+
+          '<td style="color:#64748b;font-size:11px;">'+esc(r.source)+'</td>'+
+          '<td onclick="event.stopPropagation()"><div style="display:flex;gap:4px;">'+
+            '<button class="btn btn-sm btn-edit" onclick="openEdit('+r.id+')">Edit</button>'+
+            '<button class="btn btn-sm btn-red" onclick="delEntry('+r.id+',this)">Del</button>'+
+          '</div></td>'+
+        '</tr>';
+      }).join('');
+      var cols=[['Date','infoDate'],['Status','status'],['Vessel','name'],['Type','type'],['Segment','segment'],['Size','dwt'],['Built','builtYear'],['Builder','builder'],['Seller','seller'],['Buyer','buyer'],['Price','price'],['ECO/BW/SOX',''],['Remarks','remarks'],['Source','source']];
+      var thead=cols.map(function(c){return c[1]?'<th onclick="sortBy(\''+c[1]+'\')">'+c[0]+sortIcon(c[1])+'</th>':'<th>'+c[0]+'</th>';}).join('')+'<th></th>';
+      var div=document.createElement('div');
+      div.className='group-wrap';
+      div.innerHTML='<div class="group-hdr" style="background:'+hdrBg+';"><span class="group-hdr-title">'+esc(group)+'</span><span class="group-cnt">'+gRows.length+'</span></div>'+
+        '<div class="table-scroll"><table><thead><tr>'+thead+'</tr></thead><tbody>'+(rowsHtml||'<tr><td colspan="15" class="empty">No entries</td></tr>')+'</tbody></table></div>';
+      area.appendChild(div);
+    });
+  }catch(err){
+    var area=document.getElementById('tableArea');
+    if(area) area.innerHTML='<div style="padding:24px;color:#dc2626;">⚠ '+err.message+'</div>';
+  }
 }
 
 // ── Status dropdown ───────────────────────────────────────────────────────
-let openMenuId=null;
-document.addEventListener('click',()=>closeMenus());
-function closeMenus(){document.querySelectorAll('.status-menu').forEach(m=>m.remove());openMenuId=null;}
+var openMenuId=null;
+document.addEventListener('click',function(){closeMenus();});
+function closeMenus(){document.querySelectorAll('.status-menu').forEach(function(m){m.remove();});openMenuId=null;}
 function toggleStatusMenu(id,btn){
   closeMenus();
   if(openMenuId===id){openMenuId=null;return;}
   openMenuId=id;
-  const row=data.find(r=>r.id==id);
-  const menu=document.createElement('div');
+  var row=data.find(function(r){return r.id==id;});
+  var menu=document.createElement('div');
   menu.className='status-menu';
-  menu.onclick=e=>e.stopPropagation();
-  menu.innerHTML=STATUSES.map(s=>{
-    const c=STATUS_C[s];
-    return`<button class="status-item" style="background:${row&&row.status===s?c.bg:'transparent'};color:${c.text};font-weight:${row&&row.status===s?700:500};" onclick="changeStatus(${id},'${s}')">
-      <span style="width:8px;height:8px;border-radius:50%;background:${c.dot};flex-shrink:0;display:inline-block;"></span> ${s}${row&&row.status===s?' ✓':''}
-    </button>`;
+  menu.onclick=function(e){e.stopPropagation();};
+  menu.innerHTML=STATUSES.map(function(s){
+    var c=STATUS_C[s];
+    return '<button class="status-item" style="background:'+(row&&row.status===s?c.bg:'transparent')+';color:'+c.text+';font-weight:'+(row&&row.status===s?700:500)+';" onclick="changeStatus('+id+',\''+s+'\')"><span style="width:8px;height:8px;border-radius:50%;background:'+c.dot+';flex-shrink:0;display:inline-block;"></span> '+s+(row&&row.status===s?' ✓':'')+'</button>';
   }).join('');
   btn.parentElement.appendChild(menu);
 }
 async function changeStatus(id,status){
   closeMenus();
-  const row=data.find(r=>r.id==id);if(!row)return;
-  const now=new Date();
-  const ts=now.toISOString().slice(0,16).replace('T',' ');
-  const updated={...row,status,amendLog:[...(row.amendLog||[]),{ts,note:'Status → '+status}]};
+  var row=data.find(function(r){return r.id==id;});if(!row)return;
+  var ts=new Date().toISOString().slice(0,16).replace('T',' ');
+  var updated=Object.assign({},row,{status:status,amendLog:(row.amendLog||[]).concat([{ts:ts,note:'Status → '+status}])});
   setSync('Saving…');
   try{
-    const j=await apiPost({action:'update',entry:updated});
-    if(j.success){const i=data.findIndex(r=>r.id==id);if(i>-1)data[i]=updated;render();setSync('✓ Saved '+new Date().toLocaleTimeString());}
+    var j=await apiPost({action:'update',entry:updated});
+    if(j.success){var i=data.findIndex(function(r){return r.id==id;});if(i>-1)data[i]=updated;render();setSync('✓ Saved '+new Date().toLocaleTimeString());}
     else setSync('⚠ '+(j.error||'Failed'));
   }catch(e){setSync('⚠ '+e.message);}
 }
@@ -563,21 +484,21 @@ async function changeStatus(id,status){
 async function delEntry(id,btn){
   if(btn.dataset.c==='1'){
     try{
-      const j=await apiPost({action:'delete',id});
-      if(j.success){data=data.filter(r=>r.id!=id);render();setSync('✓ Deleted');}
+      var j=await apiPost({action:'delete',id:id});
+      if(j.success){data=data.filter(function(r){return r.id!=id;});render();setSync('✓ Deleted');}
       else setSync('⚠ '+(j.error||'Failed'));
     }catch(e){setSync('⚠ '+e.message);}
-  }else{btn.textContent='Confirm?';btn.dataset.c='1';setTimeout(()=>{btn.textContent='Del';btn.dataset.c='';},3000);}
+  }else{btn.textContent='Confirm?';btn.dataset.c='1';setTimeout(function(){btn.textContent='Del';btn.dataset.c='';},3000);}
 }
 
 function openAdd(){
   editId=null;
   document.getElementById('mTitle').textContent='Add S&P Entry';
-  const today=new Date().toISOString().slice(0,10);
-  ['name','seller','buyer','price','builder','broker','dwt','builtYear','remarks','source'].forEach(f=>document.getElementById('f_'+f).value='');
+  var today=new Date().toISOString().slice(0,10);
+  ['name','seller','buyer','price','builder','broker','dwt','builtYear','remarks','source'].forEach(function(f){document.getElementById('f_'+f).value='';});
   document.getElementById('f_status').value='Reported';
   document.getElementById('f_type').value='Bulk Carrier';
-  document.getElementById('f_segment').value='Supramax/UMX';
+  document.getElementById('f_segment').value='Handysize';
   document.getElementById('f_unit').value='DWT';
   document.getElementById('f_basis').value='Straight Sale';
   document.getElementById('f_eco').value='';
@@ -589,18 +510,16 @@ function openAdd(){
 }
 
 function openEdit(id){
-  const r=data.find(d=>d.id==id);if(!r)return;
+  var r=data.find(function(d){return d.id==id;});if(!r)return;
   editId=id;
   document.getElementById('mTitle').textContent='Edit Entry';
-  ['name','seller','buyer','price','builder','broker','dwt','builtYear','remarks','source','infoDate'].forEach(f=>document.getElementById('f_'+f).value=r[f]||'');
-  ['status','type','segment','unit','basis','eco','bwts','sox'].forEach(f=>{const el=document.getElementById('f_'+f);if(el)el.value=r[f]||'';});
-  const log=r.amendLog||[];
-  const logDiv=document.getElementById('amendLog');
+  ['name','seller','buyer','price','builder','broker','dwt','builtYear','remarks','source','infoDate'].forEach(function(f){document.getElementById('f_'+f).value=r[f]||'';});
+  ['status','type','segment','unit','basis','eco','bwts','sox'].forEach(function(f){var el=document.getElementById('f_'+f);if(el)el.value=r[f]||'';});
+  var log=r.amendLog||[];
+  var logDiv=document.getElementById('amendLog');
   if(log.length>0){
     logDiv.style.display='block';
-    document.getElementById('amendLogEntries').innerHTML=log.slice().reverse().map(e=>
-      `<div class="amend-entry"><span class="amend-ts">${x(e.ts)}</span><span style="color:#64748b;">${x(e.note)}</span></div>`
-    ).join('');
+    document.getElementById('amendLogEntries').innerHTML=log.slice().reverse().map(function(e){return '<div class="amend-entry"><span class="amend-ts">'+esc(e.ts)+'</span><span style="color:#64748b;">'+esc(e.note)+'</span></div>';}).join('');
   }else logDiv.style.display='none';
   document.getElementById('modal').classList.add('open');
 }
@@ -608,27 +527,27 @@ function openEdit(id){
 function closeModal(){document.getElementById('modal').classList.remove('open');}
 
 async function saveEntry(){
-  const name=document.getElementById('f_name').value.trim();
+  var name=document.getElementById('f_name').value.trim();
   if(!name){alert('Vessel name is required.');return;}
-  const today=new Date().toISOString().slice(0,10);
-  const ts=new Date().toISOString().slice(0,16).replace('T',' ');
-  let amendLog=[];
+  var today=new Date().toISOString().slice(0,10);
+  var ts=new Date().toISOString().slice(0,16).replace('T',' ');
+  var amendLog=[];
   if(editId){
-    const prev=data.find(d=>d.id==editId);
+    var prev=data.find(function(d){return d.id==editId;});
     if(prev){
-      amendLog=[...(prev.amendLog||[])];
-      const changes=[];
+      amendLog=prev.amendLog?prev.amendLog.slice():[];
+      var changes=[];
       if(prev.status!==document.getElementById('f_status').value) changes.push('Status → '+document.getElementById('f_status').value);
       if(prev.price!==document.getElementById('f_price').value.trim()) changes.push('Price updated');
       if(prev.buyer!==document.getElementById('f_buyer').value.trim()) changes.push('Buyer updated');
-      amendLog.push({ts,note:changes.length?changes.join(', '):'Entry edited'});
+      amendLog.push({ts:ts,note:changes.length?changes.join(', '):'Entry edited'});
     }
-  }else{amendLog=[{ts,note:'Entry created'}];}
-  const entry={
+  }else{amendLog=[{ts:ts,note:'Entry created'}];}
+  var entry={
     id:editId||nextId++,
     infoDate:document.getElementById('f_infoDate').value||today,
     status:document.getElementById('f_status').value,
-    name,
+    name:name,
     type:document.getElementById('f_type').value,
     segment:document.getElementById('f_segment').value,
     dwt:document.getElementById('f_dwt').value.trim(),
@@ -645,58 +564,52 @@ async function saveEntry(){
     broker:document.getElementById('f_broker').value.trim(),
     remarks:document.getElementById('f_remarks').value.trim(),
     source:document.getElementById('f_source').value.trim(),
-    amendLog,
+    amendLog:amendLog,
   };
   closeModal();setSync('Saving…');
   try{
-    const j=await apiPost({action:editId?'update':'add',entry});
+    var j=await apiPost({action:editId?'update':'add',entry:entry});
     if(j.success){
-      if(editId){const i=data.findIndex(d=>d.id==editId);if(i>-1)data[i]=entry;}else data.push(entry);
+      if(editId){var i=data.findIndex(function(d){return d.id==editId;});if(i>-1)data[i]=entry;}else data.push(entry);
       render();setSync('✓ Saved '+new Date().toLocaleTimeString());
     }else setSync('⚠ '+(j.error||'Failed'));
   }catch(e){setSync('⚠ '+e.message);}
 }
 
-
-
 // ── Print ─────────────────────────────────────────────────────────────────
 function showPrint(){
-  const grouped=getGrouped(getFiltered());
-  const sections=Object.entries(grouped).sort(([a],[b])=>a.localeCompare(b)).map(([group,rows])=>{
-    const hdrBg=GRP_COLORS[group]||'#1e3a5f';
-    const rowsHtml=rows.map((r,i)=>`<tr style="background:${i%2===0?'#fff':'#f8fafc'};">
-      <td style="font-size:8px;white-space:nowrap;">${r.infoDate||''}</td>
-      <td><span style="background:${STATUS_C[r.status]?.bg||'#f1f5f9'};color:${STATUS_C[r.status]?.text||'#475569'};padding:1px 5px;border-radius:9px;font-weight:700;font-size:8px;">${r.status}</span></td>
-      <td style="font-weight:700;color:#1e3a5f;font-size:9px;">${r.name}</td>
-      <td style="font-size:8px;">${r.type}</td>
-      <td style="font-size:8px;white-space:nowrap;">${r.dwt} ${r.unit}</td>
-      <td style="font-size:8px;">${r.builtYear}</td>
-      <td style="font-size:8.5px;">${r.builder}</td>
-      <td style="font-size:8.5px;color:#1e3a5f;">${r.seller}</td>
-      <td style="font-size:8.5px;color:#1e3a5f;">${r.buyer}</td>
-      <td style="font-size:8.5px;color:#0f4c81;font-weight:700;">${r.price?'USD '+r.price+'m':''}</td>
-      <td style="font-size:8px;max-width:200px;overflow:hidden;">${r.remarks}</td>
-      <td style="font-size:8px;">${r.source}</td>
-    </tr>`).join('');
-    return`<div style="margin-bottom:10px;page-break-inside:avoid;">
-      <div style="background:${hdrBg};color:#fff;font-weight:700;font-size:11px;padding:5px 10px;border-radius:4px 4px 0 0;-webkit-print-color-adjust:exact;print-color-adjust:exact;">
-        ${x(group)}<span style="background:rgba(255,255,255,.2);border-radius:9px;padding:1px 8px;font-size:9px;margin-left:8px;">${rows.length}</span>
-      </div>
-      <table style="width:100%;border-collapse:collapse;">
-        <thead><tr style="background:#f8fafc;border-bottom:1.5px solid #e2e8f0;">
-          ${['Date','Status','Vessel','Type','Size','Built','Builder','Seller','Buyer','Price','Remarks','Source'].map(h=>`<th style="padding:4px 6px;text-align:left;font-size:7.5px;font-weight:700;color:#475569;text-transform:uppercase;">${h}</th>`).join('')}
-        </tr></thead>
-        <tbody>${rowsHtml}</tbody>
-      </table>
-    </div>`;
+  var grouped=getGrouped(getFiltered());
+  var sections=Object.entries(grouped).sort(function(a,b){return a[0].localeCompare(b[0]);}).map(function(entry){
+    var group=entry[0], rows=entry[1];
+    var hdrBg=GRP_COLORS[group]||'#1e3a5f';
+    var rowsHtml=rows.map(function(r,i){
+      return '<tr style="background:'+(i%2===0?'#fff':'#f8fafc')+';">'+
+        '<td style="font-size:8px;white-space:nowrap;">'+esc(r.infoDate||'')+'</td>'+
+        '<td><span style="background:'+(STATUS_C[r.status]&&STATUS_C[r.status].bg||'#f1f5f9')+';color:'+(STATUS_C[r.status]&&STATUS_C[r.status].text||'#475569')+';padding:1px 5px;border-radius:9px;font-weight:700;font-size:8px;">'+esc(r.status)+'</span></td>'+
+        '<td style="font-weight:700;color:#1e3a5f;font-size:9px;">'+esc(r.name)+'</td>'+
+        '<td style="font-size:8px;">'+esc(normaliseType(r.type))+'</td>'+
+        '<td style="font-size:8px;white-space:nowrap;">'+fmtSize(r.dwt)+' '+esc(r.unit)+'</td>'+
+        '<td style="font-size:8px;">'+esc(r.builtYear)+'</td>'+
+        '<td style="font-size:8.5px;">'+esc(r.builder)+'</td>'+
+        '<td style="font-size:8.5px;color:#1e3a5f;">'+esc(r.seller)+'</td>'+
+        '<td style="font-size:8.5px;color:#1e3a5f;">'+esc(r.buyer)+'</td>'+
+        '<td style="font-size:8.5px;color:#0f4c81;font-weight:700;">'+(r.price?'USD '+esc(r.price)+'m':'')+'</td>'+
+        '<td style="font-size:8px;max-width:200px;word-break:break-word;">'+esc(r.remarks)+'</td>'+
+        '<td style="font-size:8px;">'+esc(r.source)+'</td>'+
+      '</tr>';
+    }).join('');
+    return '<div style="margin-bottom:10px;page-break-inside:avoid;">'+
+      '<div style="background:'+hdrBg+';color:#fff;font-weight:700;font-size:11px;padding:5px 10px;border-radius:4px 4px 0 0;-webkit-print-color-adjust:exact;print-color-adjust:exact;">'+
+      esc(group)+'<span style="background:rgba(255,255,255,.2);border-radius:9px;padding:1px 8px;font-size:9px;margin-left:8px;">'+rows.length+'</span></div>'+
+      '<table style="width:100%;border-collapse:collapse;"><thead><tr style="background:#f8fafc;border-bottom:1.5px solid #e2e8f0;">'+
+      ['Date','Status','Vessel','Type','Size','Built','Builder','Seller','Buyer','Price','Remarks','Source'].map(function(h){return '<th style="padding:4px 6px;text-align:left;font-size:7.5px;font-weight:700;color:#475569;text-transform:uppercase;">'+h+'</th>';}).join('')+
+      '</tr></thead><tbody>'+rowsHtml+'</tbody></table></div>';
   }).join('');
-  document.getElementById('pc').innerHTML=`<div style="-webkit-print-color-adjust:exact;print-color-adjust:exact;">
-    <div style="background:linear-gradient(135deg,#1e3a5f,#0f4c81);color:#fff;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;border-radius:6px;">
-      <div><div style="font-size:15px;font-weight:800;">SSY Projects S&P Tracker</div>
-      <div style="font-size:9px;color:#93c5fd;margin-top:2px;">Private & Confidential | Generated ${new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</div></div>
-      <div style="color:#bfdbfe;font-size:11px;">${data.length} records</div>
-    </div>${sections}
-  </div>`;
+  document.getElementById('pc').innerHTML='<div style="-webkit-print-color-adjust:exact;print-color-adjust:exact;">'+
+    '<div style="background:linear-gradient(135deg,#1e3a5f,#0f4c81);color:#fff;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;border-radius:6px;">'+
+    '<div><div style="font-size:15px;font-weight:800;">SSY Projects | S&amp;P Tracker</div>'+
+    '<div style="font-size:9px;color:#93c5fd;margin-top:2px;">Private &amp; Confidential | Generated '+new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})+'</div></div>'+
+    '<div style="color:#bfdbfe;font-size:11px;">'+data.length+' records</div></div>'+sections+'</div>';
   document.getElementById('po').classList.add('open');
 }
 </script>
