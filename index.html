@@ -472,12 +472,12 @@ function render(){
           '<td style="color:#64748b;white-space:nowrap;">'+fmtSize(r.dwt)+' '+esc(r.unit)+'</td>'+
           '<td style="color:#64748b;">'+esc(r.builtYear)+'</td>'+
           '<td style="color:#64748b;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="'+esc(r.builder)+'">'+esc(r.builder)+'</td>'+
-          '<td style="color:#000061;font-weight:600;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="'+esc(r.seller)+'">'+esc(r.seller||'—')+'</td>'+
-          '<td style="color:#000061;font-weight:600;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="'+esc(r.buyer)+'">'+esc(r.buyer||'—')+'</td>'+
+          '<td style="color:#000061;font-weight:600;min-width:145px;max-width:145px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="'+esc(r.seller)+'">'+esc(r.seller||'—')+'</td>'+
+          '<td style="color:#000061;font-weight:600;min-width:145px;max-width:145px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="'+esc(r.buyer)+'">'+esc(r.buyer||'—')+'</td>'+
           '<td style="color:#000061;font-weight:700;white-space:nowrap;max-width:100px;">'+(r.price?'USD '+esc(r.price)+'m':'<span style="color:#cbd5e1">—</span>')+'</td>'+
-          '<td style="font-size:11px;">'+ecoFlags(r)+'</td>'+
+          '<td style="font-size:11px;min-width:90px;white-space:nowrap;">'+ecoFlags(r)+'</td>'+
           '<td style="min-width:200px;max-width:320px;white-space:normal;word-break:break-word;color:#64748b;font-size:11px;">'+esc(r.remarks||'—')+'</td>'+
-          '<td style="color:#64748b;font-size:11px;">'+esc(r.source)+'</td>'+
+          '<td style="color:#64748b;font-size:11px;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title='+esc(r.source)+'">'+ esc(r.source)+'</td>'+
           '<td onclick="event.stopPropagation()"><div style="display:flex;gap:4px;">'+
             '<button class="btn btn-sm btn-edit" onclick="openEdit('+r.id+')">Edit</button>'+
             '<button class="btn btn-sm btn-red" onclick="delEntry('+r.id+',this)">Del</button>'+
